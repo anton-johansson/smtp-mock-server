@@ -1,0 +1,28 @@
+{
+  "name": "@anton-johansson/smtp-mock-server",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "bin": {
+    "smtp-mock-server": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anton Johansson <hello@anton-johansson.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "20.5.0",
+    "typescript": "5.1.6"
+  },
+  "dependencies": {
+    "commander": "11.0.0",
+    "fastify": "4.21.0",
+    "smtp-tester": "2.1.0"
+  }
+}
