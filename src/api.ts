@@ -19,6 +19,7 @@ export default class API {
 
     start() {
         this.server = fastify();
+        this.server.get("/", this.root.bind(this))
         this.server.post("/clear-emails", this.clearEmails.bind(this));
         this.server.get("/await-email", this.awaitEmail.bind(this));
         this.server.listen({port: this.port}, (err, address) => {
@@ -35,6 +36,10 @@ export default class API {
         this.server.close(() => {
             console.log("API stopped!")
         });
+    }
+
+    private async root(_: FastifyRequest, reply: FastifyReply) {
+        reply.code(200);
     }
 
     private async clearEmails(_: FastifyRequest, reply: FastifyReply) {
