@@ -17,6 +17,26 @@ $ npx @anton-johansson/smtp-mock-server
 | `--api-port <port>`  | The port to serve the API on. Defaults to `3080`.         |
 
 
+## Example setup
+
+`package.json`:
+
+```json
+{
+  "scripts": {
+    "start": "node dist/index.js",
+    "test:e2e": "npx playwright test",
+    "test:e2e-ci": "start-test start 3000 'npx @anton-johansson/smtp-mock-server' 3080 test:e2e"
+  },
+  "devDependencies": {
+    "start-server-and-test": "2.0.0"
+  }
+}
+```
+
+Then simply run `npm run test:e2e-ci` on your continuous integration server. It will fire up your server, the SMTP mock server, run the tests and then shut down the servers again.
+
+
 ## API
 
 ### Await e-mail
